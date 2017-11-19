@@ -1,9 +1,16 @@
 const test = require('ava');
-const { getVideoFile } = require('../../src/file/video');
+const fv = require('../../src/file/video');
 
-test('', t => {
-  return getVideoFile('').then((res) => {
-    console.log(res);
-    t.pass()
-  });
+// TODO
+test.skip('getVideoFile test', async t => {
+  const testData = [
+    {
+      expected: [],
+    }
+  ];
+
+  for (const d of testData) {
+    const res = await fv.getVideoFile('/');
+    t.deepEqual(res, d.expected);
+  }
 });

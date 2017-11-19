@@ -5,7 +5,7 @@
     "start": "electron ./src/electron/index.js",
     "lint": "eslint src/**/*.js",
     "fmt": "eslint --fix *.js",
-    "test": "ava --verbose"
+    "test": "ava --tap --verbose | tap-nyan"
   },
   "repository": "ssh://git@github.com/mafuyuk/iwant.git",
   "author": "mafuyuk <mafuyuk.m@gmail.com>",
@@ -19,6 +19,8 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
-    "eslint-plugin-react": "^7.4.0"
+    "eslint-plugin-react": "^7.4.0",
+    "proxyquire": "^1.8.0",
+    "tap-nyan": "^1.1.0"
   }
 }
