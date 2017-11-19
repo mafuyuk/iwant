@@ -6,7 +6,13 @@ const { getVideoFile } = require('./src/file/video');
 let win;
 
 function createWindow () {
-  win = new BrowserWindow({width: 1000, height: 600, resizable: false});
+  win = new BrowserWindow({
+    width: 1000,
+    height: 600,
+    transparent: true,
+    frame: false,
+    resizable: false
+  });
 
   win.loadURL(`file://${__dirname}/index.html`);
 
