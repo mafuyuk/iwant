@@ -2,7 +2,7 @@
   "name": "iwant",
   "version": "1.0.0",
   "scripts": {
-    "start": "electron ./src/electron/index.js",
+    "start": "electron ./main.js",
     "lint": "eslint src/**/*.js",
     "fmt": "eslint --fix *.js",
     "test": "ava --tap --verbose | tap-nyan"

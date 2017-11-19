@@ -6,10 +6,10 @@
 </head>
 
 <body>
-<video controls>
-  <source src="somevideo.webm" type="video/webm">
-  <source src="somevideo.mp4" type="video/mp4">
-  I'm sorry; your browser doesn't support HTML5 video in WebM with VP8/VP9 or MP4 with H.264.
-</video>
+
+<div id="video"></div>
+<script>
+  require('./src/electron/renderer.js');
+</script>
 </body>
 </html>
