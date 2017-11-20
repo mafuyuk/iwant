@@ -7,6 +7,19 @@
 </head>
 
 <body>
+<script>
+  const dirPathKey = 'DIR_PATH';
+
+  function setDirPath() {
+    const path = document.getElementById('path').value;
+    localStorage.setItem(dirPathKey, path);
+  }
+</script>
+<form>
+  <p>動画のパスを入力してください<br><input type="text" id="path"></p>
+  <p><input type="submit" value="送信する" onClick="setDirPath()"></p>
+</form>
+
 
 <div id="video"></div>
 <script>

@@ -9,9 +9,6 @@ function createWindow () {
   win = new BrowserWindow({
     width: 1000,
     height: 600,
-    transparent: true,
-    frame: false,
-    resizable: false
   });
 
   win.loadURL(`file://${__dirname}/index.html`);
