@@ -12,3 +12,14 @@ ipcRenderer.on('resVideos', (event, files) => {
     document.getElementById("video").innerHTML += ve;
   }
 });
+
+// ストリーミング
+const bucket = 'media-convert-iwant';
+const path = 'encode/test.mpd';
+
+ipcRenderer.send('reqMPD', bucket, path);
+ipcRenderer.on('resMPD', (event, mpdXML) => {
+  const parser = new DOMParser();
+  const dom = parser.parseFromString(mpdXML, "text/xml");
+  console.log(dom);
+});

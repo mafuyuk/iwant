@@ -11,6 +11,7 @@
   "author": "mafuyuk <mafuyuk.m@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "aws-sdk": "^2.171.0",
     "electron": "^1.7.9"
   },
   "devDependencies": {
