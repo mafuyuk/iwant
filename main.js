@@ -35,9 +35,14 @@ app.on('activate', () => {
 });
 
 // ビデオファイルの通信
-ipcMain.on( 'reqVideos', async (ev, dirPath) => {
-  const files = await getVideoFile(dirPath);
-  ev.sender.send('resVideos', files );
+ipcMain.on('reqVideos', async (ev, dirPath) => {
+  try {
+    const files = await getVideoFile(dirPath);
+    ev.sender.send('resVideos', files );
+  } catch(e) {
+    console.log(e.message);
+  }
+
 });
 
 // MPDファイルの取得
@@ -47,6 +52,6 @@ ipcMain.on('reqMPD', async (ev, bucket, path) => {
     const data = await s3Client.get(bucket, path);
     ev.sender.send('resMPD', data.Body.toString('utf-8'));
   } catch (e) {
-    console.log(JSON.stringify(e));
+    console.log(e.message);
   }
 });
