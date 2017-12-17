@@ -2,7 +2,6 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const co = require('co');
 
 const { getVideoFile } = require('./src/file/video');
-const S3Client = require('./src/infrastructure/s3');
 
 let win;
 
@@ -43,15 +42,4 @@ ipcMain.on('reqVideos', async (ev, dirPath) => {
     console.log(e.message);
   }
 
-});
-
-// MPDファイルの取得
-ipcMain.on('reqMPD', async (ev, bucket, path) => {
-  const s3Client = new S3Client();
-  try {
-    const data = await s3Client.get(bucket, path);
-    ev.sender.send('resMPD', data.Body.toString('utf-8'));
-  } catch (e) {
-    console.log(e.message);
-  }
 });
