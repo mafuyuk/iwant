@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const co = require('co');
 
-const { getVideoFile } = require('./src/file/video');
+const { getVideoFile } = require('./src/assets/js/offline-viewing/video');
 
 let win;
 
@@ -11,7 +11,7 @@ function createWindow () {
     height: 600,
   });
 
-  win.loadURL(`file://${__dirname}/index.html`);
+  win.loadURL(`file://${__dirname}/src/index.html`);
 
   // win.webContents.openDevTools();
   win.on('closed', () => {

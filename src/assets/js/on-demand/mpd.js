@@ -1,4 +1,4 @@
-const { checkStatus, parseXML } = require('../../infrastructure/http');
+const { checkStatus, parseXML } = require('../http');
 
 function getMPD(url) {
   return fetch(url)

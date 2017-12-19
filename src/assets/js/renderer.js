@@ -1,6 +1,8 @@
 const { ipcRenderer } = require( 'electron' );
 
-const { getVideoElement } = require('../view/video');
+const { getVideoElement } = require('./view/video');
+
+const { initVideo } = require('./on-demand/video');
 
 const fileDir = localStorage.getItem('DIR_PATH');
 
@@ -14,12 +16,4 @@ ipcRenderer.on('resVideos', (event, files) => {
 });
 
 // ストリーミング
-const bucket = 'media-convert-iwant';
-const path = 'encode/test.mpd';
-
-ipcRenderer.send('reqMPD', bucket, path);
-ipcRenderer.on('resMPD', (event, mpdXML) => {
-  const parser = new DOMParser();
-  const dom = parser.parseFromString(mpdXML, "text/xml");
-  console.log(dom);
-});
+return initVideo();
