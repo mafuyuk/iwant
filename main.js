@@ -1,7 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const co = require('co');
 
-const { getVideoFile } = require('./src/assets/js/offline-viewing/video');
+const { getVideoFile } = require('./src/assets/js/direct-player/video');
 
 let win;
 

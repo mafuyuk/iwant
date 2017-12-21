@@ -1,5 +1,5 @@
 const test = require('ava');
-const video = require('../../../../src/assets/js/offline-viewing/video');
+const video = require('../../../../src/assets/js/direct-player/video');
 
 // TODO
 test.skip('getVideoFile test', async t => {

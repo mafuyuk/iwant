@@ -2,7 +2,7 @@ const { ipcRenderer } = require( 'electron' );
 
 const { getVideoElement } = require('./view/video');
 
-const { initVideo } = require('./on-demand/video');
+const { initVideo } = require('./streaming-player/video');
 
 const fileDir = localStorage.getItem('DIR_PATH');
 
