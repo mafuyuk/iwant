@@ -10,8 +10,12 @@ const fileDir = localStorage.getItem('DIR_PATH');
 ipcRenderer.send('reqVideos', fileDir);
 ipcRenderer.on('resVideos', (event, files) => {
   for (const file of files) {
-    const ve = getVideoElement(`${fileDir}/${file}`, 'poster.png');
-    document.getElementById("video").innerHTML += ve;
+    try {
+      const ve = getVideoElement(`${fileDir}/${file}`, 'poster.png');
+      document.getElementById("video").innerHTML += ve;
+    } catch (e) {
+      console.log(e.message);
+    }
   }
 });
 
