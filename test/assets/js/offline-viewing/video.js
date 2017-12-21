@@ -1,5 +1,5 @@
 const test = require('ava');
-const fv = require('../../src/file/video');
+const video = require('../../../../src/assets/js/offline-viewing/video');
 
 // TODO
 test.skip('getVideoFile test', async t => {
@@ -10,7 +10,7 @@ test.skip('getVideoFile test', async t => {
   ];
 
   for (const d of testData) {
-    const res = await fv.getVideoFile('/');
+    const res = await video.getVideoFile('/');
     t.deepEqual(res, d.expected);
   }
 });
