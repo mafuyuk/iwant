@@ -3,27 +3,50 @@
 <head>
   <meta charset="utf-8">
   <link href="assets/css/main.css" rel="stylesheet">
-  <title>iwant</title>
+  <title>Megaptailor</title>
 </head>
 
 <body>
+<!--<script>-->
+  <!--const dirPathKey = 'DIR_PATH';-->
+
+  <!--function setDirPath() {-->
+    <!--const path = document.getElementById('path').value;-->
+    <!--localStorage.setItem(dirPathKey, path);-->
+  <!--}-->
+<!--</script>-->
+<!--<form>-->
+  <!--<p>動画のパスを入力してください<br><input type="text" id="path"></p>-->
+  <!--<p><input type="submit" value="送信する" onClick="setDirPath()"></p>-->
+<!--</form>-->
+
+
+<!--<div id="video"></div>-->
+<!--<script>-->
+  <!--require('./assets/js/renderer.js');-->
+<!--</script>-->
+
+
+<video id=example-video width=1000 height=1000 class="video-js vjs-default-skin" controls></video>
+<!-- video.js -->
+<script src="../../megaptailor/src/assets/vendor/video.min.js"></script>
+<!-- Dash.js -->
+<script src="../../megaptailor/src/assets/vendor/dash.all.min.js"></script>
+<!-- videojs-contrib-dash script -->
+<script src="../../megaptailor/src/assets/vendor/videojs-dash.min.js"></script>
+
 <script>
-  const dirPathKey = 'DIR_PATH';
+  const player = videojs('example-video');
 
-  function setDirPath() {
-    const path = document.getElementById('path').value;
-    localStorage.setItem(dirPathKey, path);
-  }
+  player.ready(function() {
+    player.src({
+      src: 'https://s3.amazonaws.com/media-convert-iwant/encode/test.mpd',
+      type: 'application/dash+xml'
+    });
+
+    player.play();
+  });
 </script>
-<form>
-  <p>動画のパスを入力してください<br><input type="text" id="path"></p>
-  <p><input type="submit" value="送信する" onClick="setDirPath()"></p>
-</form>
 
-
-<div id="video"></div>
-<script>
-  require('./assets/js/renderer.js');
-</script>
 </body>
 </html>
