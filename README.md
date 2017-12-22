@@ -1,3 +1,3 @@
 # Megaptailor :whale2:
 
-node v7.9.0
+node v8.2.1
